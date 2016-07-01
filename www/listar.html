@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>CRUD Phonegap</title>
+</head>
+
+<body>
+    <header id="header-app">
+        <div class="header-container">
+            <div class="header-content">
+                <nav id="main-navigation">
+                    <div>
+                        <div class="toggle-trigger-nav">
+                            <strong class="title-brand-app"><a href="index.html">My<span>App</span></a></strong>
+                            <button type="button" class="btn toggle-nav">+</button>
+                        </div>
+                        <div id="nav">
+                            <ul class="nav-menu-list">
+                                <li class="nav-menu-item"><a href="inserir.html">Cadastrar</a></li>
+                                <li class="nav-menu-item"><a href="listar.html">Listar</a></li>
+                                <li class="nav-menu-item"><a id="sair">Sair</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main id="main-container">
+        <div class="main-content">
+            <form id="app-search-form">
+                <input type="text" name="cliente" value="" placeholder="Pesquise:">
+                <button type="button" name="pesquisar" class="btn-primary-app" onclick="getAll()">Pesquisar</button>
+                <div class="result-search"></div>
+            </form>
+        </div>
+    </main>
+    <footer id="footer-app">
+        <div id="footer-container">
+            <div class="footer-content">
+                <div id="menu-footer-wrap">
+                    <ul class="footer-nav">
+                        <li class="footer-nav-item">Cadastrar</li>
+                        <li class="footer-nav-item">Listar</li>
+                        <li class="footer-nav-item">Sair</li>
+                    </ul>
+                </div>
+                <span class="info-dev-email">desenvolvido por Oliveira Devoperment.</span>
+                <span class="info-dev-date">2016</span>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        function getAll(){
+            var cliente = $('#app-search-form input[name="cliente"]').val();
+            $.post('http://developeroliveira.16mb.com/getAll.php',
+                   {cliente: cliente},
+                   function(data) {
+                       if(data)
+                       {
+                            console.log(data);
+                            $('.result-search div').remove();
+                            $('.btn-primary-app').text('Dados recebidos!');
+                            var n = data.length;
+                            var clientes = jQuery.parseJSON(data);
+                            for(var i = 0; i <= n; i++){
+                               $(".result-search").append('<div>'+ clientes[i].nome + ' - ' + clientes[i].cpf +'<div class="pull-right"><button type="button" id="edt'+ clientes[i].id +'" class="btn edtCliente">Editar</button><button type="button" id="del'+ clientes[i].id +'" class="btn delCliente" onclick="del('+clientes[i].id+')">Excluir</button></div></div>');
+                            }
+                       }else{
+                            $('.btn-primary-app').text('Ocorreu um erro!').css('background','#F00');
+                       }
+            });            
+        }
+
+        function del(id){
+            $.post('http://developeroliveira.16mb.com/del.php',
+                   {cliente_id: id},
+                   function(data) {
+                       if(data == 1){
+                            alert("Excluído com Sucesso!");
+                            getAll();
+                       }else{
+                        alert("Ocorreu um erro!");
+                       }
+                   }
+                );
+        }
+    </script>
+</body>
+
+</html>

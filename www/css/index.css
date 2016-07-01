@@ -1,0 +1,158 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+*{
+    font-family: "Helvetica", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-size: 16px;
+}
+
+#header-app{
+    background:#222;
+    color: #FFF;
+    width:100%;
+}
+
+.title-brand-app {
+    padding: 10px;
+    height: 50px;
+    line-height: 50px;
+    color: #FF0000;
+}
+
+.title-brand-app a{
+    text-decoration: none;
+    color: #FF0000;
+}
+
+.title-brand-app span{
+    color: #00BFFF;
+    font-size: 18px;
+}
+
+#main-navigation #nav .nav-menu-list{
+    list-style:none;
+    display: none;
+}
+
+#main-navigation #nav .nav-menu-item{
+    width: 100%;
+    display: block;
+    float:none;
+    border-bottom: 1px solid #444;
+    line-height: 45px;
+    text-align: center;
+}
+
+#main-navigation #nav .nav-menu-item a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.btn.toggle-nav {
+    background: transparent;
+    border: 1px solid #555;
+    float: right;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 5px;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#main-container{
+    width: 96%;
+    margin: 20px auto;
+}
+
+.btn-primary-app{
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    color: #FFF;
+    background:#00F;
+    border-radius: 5px;
+    border: 0;
+    width: 100%;
+}
+
+footer{
+    display: none;
+}
+
+input{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    line-height: 30px;
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 2px 2px #ddd inset;
+}
+
+.result-search{
+    clear:both;
+    float: none;
+    margin-top: 20px;
+}
+
+.result-search div{
+    font-size: 13px;
+    font-family: Helvetica,sans-serif;
+    font-weight: bold;
+    border-bottom: 1px solid #999;
+    padding-bottom:5px;
+    margin-bottom:10px;
+    min-height: 25px;
+}
+
+.edtCliente{
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #FFF;
+    background: #00F;
+    border-radius: 3px;
+    padding: 0 5px;
+    border: 0;
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+.delCliente{
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #FFF;
+    background: #F00;
+    border-radius: 3px;
+    padding: 0 5px;
+    border: 0;
+}
+
+.pull-right{
+    float: right;
+}
